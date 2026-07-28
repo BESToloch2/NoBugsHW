@@ -15,8 +15,7 @@ public class MathOperationsHW {
 
     /*3*/
     public static int difference(int x, int y){
-        if (y > x){ return y - x;}
-        return x - y;
+        return Math.abs(x-y);
     }
 
     /*4*/
@@ -62,7 +61,7 @@ public class MathOperationsHW {
         System.out.println("Max of two nums is : " + findMax(2,3));
 
         /*3*/
-        System.out.println("Addition method: " + difference(7,19));
+        System.out.println("Difference method: " + difference(7,19));
 
         /*4*/
         System.out.println("squareArea: " + squareArea(4));
