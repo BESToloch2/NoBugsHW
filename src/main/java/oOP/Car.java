@@ -26,7 +26,7 @@ public class Car {
     }
 
     void print (){
-        System.out.printf("brand of a car is: " + this.brand + " and car " + "year is: " + this.year);
+        System.out.println("brand of a car is: " + this.brand + " and car " + "year is: " + this.year);
     }
 
 

@@ -17,7 +17,7 @@ public class Rectangle {
         return this.height;
     }
 
-    void setWigth (int width){
+    void setWidth (int width){
         this.width = width;
     }
 
@@ -28,7 +28,7 @@ public class Rectangle {
     public static void main (String[] args){
 
         Rectangle p = new Rectangle(12, 8);
-        p.setWigth(10);
+        p.setWidth(10);
         System.out.println(p.calculateArea());
     }
 
