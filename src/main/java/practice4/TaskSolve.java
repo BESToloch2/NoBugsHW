@@ -75,6 +75,34 @@ public class TaskSolve {
         }
     }
 
+    public int sumOfAllNums(int n){
+        int sum = 0;
+        for (int i = 1; i <= n; i++){
+            sum += i;
+        }
+        return sum;
+    }
+
+    public String  checkIsNumPrime(int n){
+        String res = "true";
+
+            for (int i = 1; i < 101; i++) {
+
+
+                for (int j = 1; j < i; j++) {
+
+                    if ( i % j == 0){
+                        res = "false";
+                        break;
+                    }
+
+                }
+
+            }
+
+        return res;
+    }
+
 
 
     public static void main(String[] args) {
@@ -90,5 +118,9 @@ public class TaskSolve {
 
         ts.numMultiplication(3);
 
+        System.out.println(ts.sumOfAllNums(10));
+        System.out.println(ts.sumOfAllNums(5));
+
+        System.out.println(ts.checkIsNumPrime(4));
     }
 }
