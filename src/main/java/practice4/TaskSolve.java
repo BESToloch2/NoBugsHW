@@ -1,5 +1,8 @@
 package practice4;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class TaskSolve {
 
     // if else operators
@@ -83,31 +86,102 @@ public class TaskSolve {
         return sum;
     }
 
-    public String  checkIsNumPrime(int n){
-        String res = "true";
+    public  boolean  checkIsNumPrime(int n){
+        boolean res = true;
+            for (int i = 2; i < n; i++) {
 
-            for (int i = 1; i < 101; i++) {
-
-
-                for (int j = 1; j < i; j++) {
-
-                    if ( i % j == 0){
-                        res = "false";
-                        break;
-                    }
-
+                if (n % i == 0) {
+                    res = false;
+                    break;
                 }
-
             }
-
         return res;
     }
+
+    public  void printAllPrimeNumsUntil100(){
+        for (int i = 2; i <= 100; i++) {
+            if (checkIsNumPrime(i)){
+                System.out.println(i);
+            }
+        }
+    }
+
+    public void enterUntilExit(){
+        Scanner s =new Scanner(System.in);
+        String input = "";
+        while (!input.equals("exit")) {
+            System.out.println("Enter: ");
+            input = s.nextLine();
+        }
+        System.out.println("Programme done");
+    }
+
+    public int sumOfDigits(int num){
+        int sum = 0;
+
+        while(num >= 1){
+            sum += num % 10;
+            num = num / 10;
+        }
+        return sum;
+    }
+
+    public void findNumber(int bound){
+        int rN = new Random().nextInt(bound);
+        Scanner s =new Scanner(System.in);
+
+        int input;
+
+        do {
+            System.out.println("Guess number: ");
+            input = s.nextInt();
+            if (rN > input){
+                System.out.println("bigger");
+            } else if (rN < input) {
+                System.out.println("smaller");
+            }
+        } while (input != rN);
+        System.out.println("Right!");
+    }
+
+    public void inputAndFindMin(){
+        Scanner s = new Scanner(System.in);
+        int input;
+
+        int minPositiveNumber = Integer.MAX_VALUE;
+
+        do {
+            System.out.println("Enter number: ");
+            input = s.nextInt();
+
+            if (input < minPositiveNumber && input >-1){
+                minPositiveNumber = input;
+            }
+
+        } while (input > -1);
+        System.out.println(" Min positive entered num is : " + minPositiveNumber);
+    }
+
+    public void checkCredentials(){
+        Scanner s = new Scanner(System.in);
+        String login;
+        String password;
+
+        do{
+            System.out.println("Enter login:");
+            login = s.nextLine();
+            System.out.println("Enter password:");
+            password = s.nextLine();
+        } while (!login.equals("admin") && !password.equals("123"));
+        System.out.println("Excess approved");
+    }
+
 
 
 
     public static void main(String[] args) {
         TaskSolve ts = new TaskSolve();
-        System.out.println(ts.maxNum(7,3,10));
+    /*    System.out.println(ts.maxNum(7,3,10));
         System.out.println(ts.maxNum(7,2,3));
         System.out.println(ts.maxNum(1,33,10));
 
@@ -122,5 +196,28 @@ public class TaskSolve {
         System.out.println(ts.sumOfAllNums(5));
 
         System.out.println(ts.checkIsNumPrime(4));
+
+        //ts.printAllPrimeNumsUntil100();
+
+        //ts.enterUntilExit();*/
+
+        //System.out.println( ts.sumOfDigits(123));
+
+       // ts.findNumber(5);
+
+        //ts.inputAndFindMin();
+
+        ts.checkCredentials();
+
+
+
+
+
+
+
+
     }
+
+
+
 }
