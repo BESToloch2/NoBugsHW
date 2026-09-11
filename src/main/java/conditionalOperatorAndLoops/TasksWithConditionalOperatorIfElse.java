@@ -2,7 +2,7 @@ package conditionalOperatorAndLoops;
 
 import java.util.Scanner;
 
-public class TasksWithConditionalOper {
+public class TasksWithConditionalOperatorIfElse {
     Scanner s = new Scanner(System.in);
 
     //1. Определение знака числа
@@ -93,20 +93,9 @@ public class TasksWithConditionalOper {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
     public static void main(String[] args) {
 
-        TasksWithConditionalOper tWcO = new TasksWithConditionalOper();
+        TasksWithConditionalOperatorIfElse tWcO = new TasksWithConditionalOperatorIfElse();
 
 
         //tWcO.checkSimbolOfNum();
@@ -115,7 +104,7 @@ public class TasksWithConditionalOper {
 
         //tWcO.ratingOutputOnA_1To_5Scale();
 
-        tWcO.estimationOfTestResult();
+        //tWcO.estimationOfTestResult();
 
 
 
