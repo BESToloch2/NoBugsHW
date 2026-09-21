@@ -56,7 +56,7 @@ public class HWDoWhileLoop {
     }
 
     //5. Подсчёт количества цифр в числе
-    public static void sumOfNums(){
+    public static void countDigits(){
         System.out.println("Enter number: ");
         int input = s.nextInt();
         int counter = 0;
@@ -73,7 +73,7 @@ public class HWDoWhileLoop {
         //passwordCheck();
         //printNumsFrom1To10();
         //interruptCommand();
-        //sumOfNums();
+        //countDigits();
 
 
     }
