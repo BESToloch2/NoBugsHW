@@ -6,8 +6,7 @@ public class Main {
     Animal (sound(); move();)
     Bird extends Animal
     Elephant extends Animal
-    Zoo (Animal animal)
-    Manager (addAnimal(animal); makeSound(); makeMove();)
+    Zoo (Animal ; addAnimal(animal); makeSound(); makeMove();)
     */
 
     public static void main(String[] args){
@@ -17,12 +16,10 @@ public class Main {
         Animal elephant = new Elephant();
         Animal bird = new Bird();
 
-        Manager manager = new Manager();
+        zoo_1.addAnimalIntoZoo(elephant);
+        zoo_2.addAnimalIntoZoo(bird);
 
-        manager.addAnimalIntoZoo(zoo_1, elephant);
-        manager.addAnimalIntoZoo(zoo_2, bird);
-
-        manager.showBehavior(zoo_1);
-        manager.showBehavior(zoo_2);
+        zoo_1.showBehavior(zoo_1);
+        zoo_1.showBehavior(zoo_2);
     }
 }
