@@ -1,7 +1,5 @@
 package exceptionsAndGenerics.generics;
 
-import practice_8.Book;
-
 public class Box<T> {
     //1. Задача на дженерик класс:
     //Определите класс с использованием дженерик типа <T>.
