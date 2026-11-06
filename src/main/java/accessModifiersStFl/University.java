@@ -19,8 +19,8 @@ public class University {
     }
 
     public void printStudentInfo(){
-        System.out.println("Student name: " + studentName);
-        System.out.println("Student ID: " + studentID);
+        System.out.println("complexTasks.task1.Student name: " + studentName);
+        System.out.println("complexTasks.task1.Student ID: " + studentID);
         System.out.println("University name: " + universityName);
     }
 

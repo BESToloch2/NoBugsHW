@@ -1,3 +1,5 @@
+package complexTasks.task1;
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
@@ -21,13 +23,13 @@ public class EntityManager<T extends Entity> {
         boolean status = true;
         for (T element : elements){
             if (element.getName().equalsIgnoreCase(name)){
-                status = element.isActive();
+                status = element.getIsActive();
             }
         }
         return status;
     }
 
-    public List<T> cloneList(){
+    public List<T> getAll(){
         return List.copyOf(elements);
     }
 
@@ -40,7 +42,7 @@ public class EntityManager<T extends Entity> {
     }
 
     public List<T> filterByIsActive(boolean isActive){
-        return elements.stream().filter(Entity::isActive).collect(Collectors.toList());
+        return elements.stream().filter(Entity::getIsActive).collect(Collectors.toList());
     }
 
 }

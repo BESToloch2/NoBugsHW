@@ -1,3 +1,5 @@
+package complexTasks.task1;
+
 public abstract class Entity {
     private int age;
     private String name;
@@ -17,7 +19,7 @@ public abstract class Entity {
         return name;
     }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 }
