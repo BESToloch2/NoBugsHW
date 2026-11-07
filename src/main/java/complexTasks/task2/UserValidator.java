@@ -1,7 +1,7 @@
 package complexTasks.task2;
 
 public class UserValidator {
-    private static boolean validationEnabled = true;
+    private static boolean validationEnabled;
 
     public static void setValidationEnabled(boolean enabled) {
         validationEnabled = enabled;
