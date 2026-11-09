@@ -17,6 +17,13 @@ public class GradeService<T extends Number> {
     }
 
     public synchronized double avgGradeBySubject(String subject){
-        return elements.stream().filter(e -> e.getSubject().equals(subject)).mapToDouble(e -> e.getGrade().doubleValue()).average().orElse(0.0);
+        return elements.stream().filter(e -> e.getSubject().equals(subject))
+                .mapToDouble(e -> e.getGrade()
+                        .doubleValue())
+                .average().orElse(0.0);
+    }
+
+    public synchronized List<StudentGrade<T>> getElements() {
+        return  List.copyOf(elements);
     }
 }
