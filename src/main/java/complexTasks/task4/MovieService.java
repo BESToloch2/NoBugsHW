@@ -2,11 +2,14 @@ package complexTasks.task4;
 
 import complexTasks.task3.InvalidGradeException;
 
-import javax.management.openmbean.InvalidKeyException;
 import java.util.*;
 
 public class MovieService<T extends Number> {
     private final Map<Movie, List<Rating<T>>> movies;
+
+    public Map<Movie, List<Rating<T>>> getMovies() {
+        return Map.copyOf(movies);
+    }
 
     public MovieService() {
         movies = new HashMap<>();
@@ -31,7 +34,7 @@ public class MovieService<T extends Number> {
         Movie movie = new Movie(title);
 
         if (!movies.containsKey(movie)) {
-            throw new InvalidKeyException("No such title");
+            throw new InvalidMovieException("No such title");
         }
 
         return movies.get(movie).stream()
