@@ -87,4 +87,37 @@ public class InventoryServiceTest {
         assertFalse(inventoryService.getProducts().get(food).contains(product3));
         assertEquals(2, inventoryService.getProducts().get(electronics).size());
     }
+
+    @Test
+    public void managerCanFilterProductsByCategory(){
+        inventoryService.addProduct(electronics, product1);
+        inventoryService.addProduct(electronics, product2);
+        inventoryService.addProduct(food, product3);
+
+        List<Product> expected = List.of(product3);
+
+        assertEquals(expected, inventoryService.filterByCategory(food));
+    }
+
+    @Test
+    public void managerCanFilterProductsByPrice(){
+        inventoryService.addProduct(electronics, product1);
+        inventoryService.addProduct(electronics, product2);
+        inventoryService.addProduct(food, product3);
+        List<Product> expected = List.of(product2);
+        assertEquals(expected, inventoryService.filterByPrice(electronics, p -> p.getPrice() < 1200.0));
+    }
+
+    @Test
+    public void managerCatchExceptionWhenTryingToRetrieveProductFromNotExistedCategory(){
+        OutOfStockException exception = assertThrows(OutOfStockException.class, () -> inventoryService.retrieveProduct(food, product3.getName()));
+        assertEquals("No Such Category", exception.getMessage());
+    }
+
+    @Test
+    public void managerCatchExceptionWhenTryingToRetrieveNotExistedProduct(){
+        inventoryService.addProduct(electronics, product1);
+        OutOfStockException exception = assertThrows(OutOfStockException.class, () -> inventoryService.retrieveProduct(electronics, "Nonexistent Product"));
+        assertEquals("No Such Product", exception.getMessage());
+    }
 }
