@@ -37,23 +37,30 @@ public class InventoryService {
                values.add(product);
                products.put(category, values);
            }
+       }else {
+           throw new InventoryClosedException("You can`t add product when inventory is closed");
        }
+
    }
 
-   public void retrieveProduct (String name, String category){
+   public void retrieveProduct (String category, String name){
 
-       if (products.containsKey(category)){
+       if (isInventoryOpen) {
+           if (products.containsKey(category)) {
 
-          Product p = products.get(category).stream().filter(v -> v.getName().equals(name)).findFirst().orElse(null);
-           List<Product> list = products.get(category);
-          if (p != null) {
-              list.remove(p);
-          }else {
-              throw new OutOfStockException("No Such Product");
-          }
+               Product p = products.get(category).stream().filter(v -> v.getName().equals(name)).findFirst().orElse(null);
+               List<Product> list = products.get(category);
+               if (p != null) {
+                   list.remove(p);
+               } else {
+                   throw new OutOfStockException("No Such Product");
+               }
 
+           } else {
+               throw new OutOfStockException("No Such Category");
+           }
        }else {
-           throw new OutOfStockException("No Such Category");
+           throw new InventoryClosedException("You can`t retrieve product when inventory is closed");
        }
    }
 
