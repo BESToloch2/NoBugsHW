@@ -1,6 +1,8 @@
 package complexTasks.task6;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class TaskService <T>{
@@ -25,7 +27,23 @@ public class TaskService <T>{
         tasks.removeIf(t -> t.getId().equals(id));
     }
 
+    public List<Task<T>> filterByStatus(TaskStatus status){
+        return tasks.stream()
+                .filter(t -> t.getStatus() == status)
+                .toList();
+    }
 
+    public List<Task<T>> filterByPriority(TaskPriority priority){
+        return tasks.stream()
+                .filter(t -> t.getPriority() == priority)
+                .toList();
+    }
 
-
+    public List<Task<T>> sortByDate(boolean isAscending){
+        if (isAscending) {
+            return tasks.stream().sorted(Comparator.comparing(Task::getDate)).toList();
+        }else {
+            return tasks.stream().sorted(Comparator.<Task<T>, LocalDate> comparing(Task::getDate).reversed()).toList();
+        }
+    }
 }
